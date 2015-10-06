@@ -7,7 +7,7 @@ var localGitRepos = [
     {dir: '.', remote: 'origin', branch: 'fire/' + uuid.v4()}
 ];
 
-var cmd = 'cd {0}; git add . && git commit -m "fire commit" && git push -f {1} HEAD:{2};';
+var cmd = 'cd {0} && git add . && git commit -m "fire commit" && git push -f {1} HEAD:{2};';
 
 var firebase = new Firebase('wss://developer-api.nest.com');
 
