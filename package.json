@@ -1,0 +1,16 @@
+{
+  "name": "fire-push",
+  "authors": [
+    "David Farr <david.farr@sap.com>"
+  ],
+  "version": "0.0.0",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dfarr/fire-push"
+  },
+  "dependencies": {
+    "node-uuid": "^1.4.3",
+    "string-format": "^0.5.0"
+  }
+}

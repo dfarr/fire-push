@@ -1,0 +1,11 @@
+{
+  "name": "fire-push",
+  "version": "0.0.0",
+  "authors": [
+    "David Farr <david.farr@sap.com>"
+  ],
+  "main": "index.html",
+  "dependencies": {
+    "firebase": "~2.3.1"
+  }
+}
