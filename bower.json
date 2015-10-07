@@ -6,6 +6,10 @@
   ],
   "main": "index.html",
   "dependencies": {
-    "firebase": "~2.3.1"
+    "firebase": "~2.3.1",
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.4.0",
+    "angular": "~1.4.7",
+    "angular-bootstrap": "~0.13.4"
   }
 }

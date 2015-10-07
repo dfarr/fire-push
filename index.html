@@ -1,13 +1,79 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World!</title>
+    <title>Fire Push</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node.js <script>document.write(process.version)</script>.
+
+    <div class="container" ng-controller="AppCtrl">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+
+                <h1>
+                    Fire Push
+                    <i class="fa fa-circle-o" ng-class="{
+                      'text-success': state === 'ok',
+                      'text-warning': state === 'warning',
+                      'text-danger': state === 'emergency',
+                    }"></i>
+                </h1>
+
+                <label>When Nest detects a fire we will push these repositories</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Local path</th>
+                        <th>Remote</th>
+                        <th>Branch</th>
+                        <th></th>
+                    </tr>
+                    <tr ng-repeat="repo in repos track by $index">
+                        <td>{{ repo.path }}</td>
+                        <td>{{ repo.remote }}</td>
+                        <td>{{ repo.branch }}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-default" ng-click="rmvRepo($index)">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class="form-control" ng-model="add.path"></td>
+                        <td><input type="text" class="form-control" ng-model="add.remote"></td>
+                        <td><input type="text" class="form-control" ng-model="add.branch"></td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-default" ng-click="addRepo()">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="form-group">
+                    <label>Using this command</label>
+                    <textarea class="form-control" rows="2" ng-model="cmd"></textarea>
+                </div>
+
+                <p class="well">
+                    <strong>{0}</strong> &mdash; the local path of your git repo.<br />
+                    <strong>{1}</strong> &mdash; the target remote.<br />
+                    <strong>{2}</strong> &mdash; the target branch.<br />
+                    <strong>{3}</strong> &mdash; a random UUID (useful to ensure you are pushing to a non-existing branch).
+                </p>
+
+            </div>
+        </div>
+
+    </div>
 
     <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
     <script type="text/javascript" src="src/app.js"></script>
 
   </body>
