@@ -44,10 +44,11 @@ module.controller('AppCtrl', ['$scope', function($scope) {
                     // fire push each repo
                     $scope.repos.forEach(function(repo) {
                         exec(format($scope.cmd, repo.path, repo.remote, repo.branch, repo.uuid), function(err, stdout, stderr) {
-                            console.log(err, stdout, stderr);
-                            if(!err) {
+                            $scope.$apply(function() {
+                                repo.stdout = stdout;
+                                repo.stderr = stderr;
                                 repo.uuid = uuid.v4();
-                            }
+                            });
                         });
                     });
                 }
