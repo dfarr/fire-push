@@ -1,9 +1,9 @@
-'use strict';
 
-var module = angular.module('app', ['ui.bootstrap']);
+var module = angular.module('app', ['firebase', 'ui.bootstrap']);
 var format = require('string-format');
 var uuid = require('node-uuid');
 var exec = require('child_process').exec;
+var Firebase = require('firebase');
 
 angular.element(document).ready(function() {
     angular.bootstrap(document, ['app']);
